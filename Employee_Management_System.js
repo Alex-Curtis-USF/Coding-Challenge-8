@@ -18,3 +18,21 @@ let amanda = new Employee("Amanda", 75000, "Designer", "Marketing");
 
 console.log(jim.getDetails());
 console.log(amanda.getDetails());
+
+// Create a Department Class
+
+class Department {
+    constructor(name) {
+        this.name = name;
+        this.employees = [];
+    }
+    addEmployee(employee) {
+        this.employees.push(employee);
+    }
+}
+
+let engineering = new Department("Engineering");
+let marketing = new Department("Marketing");
+
+engineering.addEmployee(jim);
+marketing.addEmployee(amanda);
