@@ -36,3 +36,22 @@ let marketing = new Department("Marketing");
 
 engineering.addEmployee(jim);
 marketing.addEmployee(amanda);
+
+// Create a Manager Class that Inherits from Employee
+
+class Manager extends Employee {
+    constructor(name, salary, position, department, bonus) {
+        super(name, salary, position, department);
+        this.bonus = bonus;
+    }
+    getDetails() {
+        return `${this.name} is a ${this.position} and makes $${this.salary} a year with a bonus of $${this.bonus} this year.`
+    }
+}
+
+let kaitlyn = new Manager("Kaitlyn", 100000, "Marketing Manager", "Marketing", 20000);
+let james = new Manager("James", 105000, "Engineering Manager", "Engineering", 25000);
+
+console.log(kaitlyn.getDetails());
+console.log(james.getDetails());
+
