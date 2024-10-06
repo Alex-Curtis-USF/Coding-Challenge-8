@@ -29,13 +29,25 @@ class Department {
     addEmployee(employee) {
         this.employees.push(employee);
     }
+    getDepartmentSalary() {
+        return this.employees.reduce((total, employee) => total + employee.salary, 0);
+    }
+    calculateTotalSalaryWithBonus() {
+        return this.employees.reduce((total, employee) => {
+            return total + employee.salary + (employee.bonus || 0);
+        }, 0);
+    }
 }
+
 
 let engineering = new Department("Engineering");
 let marketing = new Department("Marketing");
 
 engineering.addEmployee(jim);
 marketing.addEmployee(amanda);
+
+console.log(`Total salary for ${engineering.name} department: $${engineering.getDepartmentSalary()}`);
+console.log(`Total salary for ${marketing.name} department: $${marketing.getDepartmentSalary()}`);
 
 // Create a Manager Class that Inherits from Employee
 
@@ -54,4 +66,13 @@ let james = new Manager("James", 105000, "Engineering Manager", "Engineering", 2
 
 console.log(kaitlyn.getDetails());
 console.log(james.getDetails());
+
+marketing.addEmployee(kaitlyn);
+engineering.addEmployee(james);
+
+// Handle Bonuses for Managers
+// The calculation is in the second section
+
+console.log(`Total salary with bonuses for ${engineering.name} department: $${engineering.calculateTotalSalaryWithBonus()}`);
+console.log(`Total salary with bonuses for ${marketing.name} department: $${marketing.calculateTotalSalaryWithBonus()}`);
 
