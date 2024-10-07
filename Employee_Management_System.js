@@ -76,3 +76,25 @@ engineering.addEmployee(james);
 console.log(`Total salary with bonuses for ${engineering.name} department: $${engineering.calculateTotalSalaryWithBonus()}`);
 console.log(`Total salary with bonuses for ${marketing.name} department: $${marketing.calculateTotalSalaryWithBonus()}`);
 
+// Create and Manage Departments and Employees
+
+let technology = new Department("Technology");
+let sales = new Department("Sales");
+
+let alice = new Employee("Alice", 85000, "Senior Developer", "Technology");
+let bob = new Employee("Bob", 75000, "Developer", "Sales");
+
+let eve = new Manager("Eve", 110000, "Technology Manager", "Technology", 30000);
+let frank = new Manager("Frank", 105000, "Sales Manager", "Sales", 25000);
+
+technology.addEmployee(alice);
+technology.addEmployee(eve);
+sales.addEmployee(bob);
+sales.addEmployee(frank);
+
+console.log(`Total salary for ${technology.name} department (without bonuses): $${technology.getDepartmentSalary()}`);
+console.log(`Total salary for ${technology.name} department (with bonuses): $${technology.calculateTotalSalaryWithBonus()}`);
+
+console.log(`Total salary for ${sales.name} department (without bonuses): $${sales.getDepartmentSalary()}`);
+console.log(`Total salary for ${sales.name} department (with bonuses): $${sales.calculateTotalSalaryWithBonus()}`);
+
